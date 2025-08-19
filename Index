@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haui - Infografía del Plan de Negocio</title>
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <script src="[https://cdn.jsdelivr.net/npm/chart.js](https://cdn.jsdelivr.net/npm/chart.js)"></script>
+    <style>
+        @import url('[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap)');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F7F9FB;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .stat-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #E5E7EB;
+        }
+    </style>
+    <!-- Chosen Palette: Energetic & Playful (#FF6B6B, #FFD166, #06D6A0, #118AB2, #073B4C) -->
+    <!-- Application Structure Plan: The infographic is a single-page, scrollable narrative. It starts with a Hero section stating the mission. It then defines 'El Problema' using large, impactful stats. 'Nuestra Solución: Haui' explains the product visually. 'El Modelo de Negocio' uses a simple diagram to show the two-sided market. 'Mercado Potencial' uses a bar chart to show the massive B2C user base. 'Proyecciones Financieras' uses a line chart to visualize the 5-year revenue goal. 'Impacto Climático y Social' uses donut charts and stats to quantify the positive effects. This structure tells a compelling story from problem to impact, making complex business data digestible and engaging for potential investors and partners. -->
+    <!-- Visualization & Content Choices:
+    - Problem Section: Goal: Inform. Viz: Large text numbers for impact. Justification: Highlighting key pain points (low income, high costs) with stark figures is highly effective. Method: Styled HTML.
+    - Solution Section: Goal: Organize. Viz: Flowchart-like diagram. Justification: A visual flow best explains how the AI assistant works for the producer. Method: Structured HTML/CSS with Tailwind. NO SVG/Mermaid.
+    - Business Model: Goal: Organize. Viz: Two-sided market diagram. Justification: Clearly shows the value exchange between B2C users and B2B customers. Method: Structured HTML/CSS with Tailwind.
+    - Market Size: Goal: Compare. Viz: Bar Chart. Justification: Compares the number of producers in Colombia vs. LATAM, showing the scale of the opportunity. Library: Chart.js/Canvas.
+    - Financial Projections: Goal: Change. Viz: Line Chart. Justification: Shows revenue growth over 5 years, a standard and clear way to present financial forecasts. Library: Chart.js/Canvas.
+    - Impact Section: Goal: Inform/Compare. Viz: Donut Charts & Big Numbers. Justification: Donut charts effectively show proportional goals (e.g., % reduction in emissions), while big numbers highlight key social targets. Library: Chart.js/Canvas.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="text-gray-800">
+
+    <!-- Header / Nav -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-[#073B4C]">Haui</h1>
+            <ul class="hidden md:flex space-x-8 font-medium text-lg">
+                <li><a href="#problema" class="hover:text-[#118AB2] transition-colors">El Problema</a></li>
+                <li><a href="#solucion" class="hover:text-[#118AB2] transition-colors">Solución</a></li>
+                <li><a href="#mercado" class="hover:text-[#118AB2] transition-colors">Mercado</a></li>
+                <li><a href="#financieros" class="hover:text-[#118AB2] transition-colors">Finanzas</a></li>
+                <li><a href="#impacto" class="hover:text-[#118AB2] transition-colors">Impacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-white pt-16 pb-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-5xl md:text-6xl font-extrabold text-[#073B4C] leading-tight">Regenerando la Agricultura, <br> Cosechando Prosperidad.</h2>
+                <p class="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">Haui es el ecosistema digital que empodera a los productores de café en América Latina con conocimiento, gestión y acceso a mercados, transformando la sostenibilidad en rentabilidad.</p>
+            </div>
+        </section>
+
+        <!-- El Problema -->
+        <section id="problema" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h3 class="text-4xl font-bold text-center text-[#073B4C] mb-12">El Problema: Un Ciclo Vicioso</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="stat-card">
+                        <p class="text-6xl font-extrabold text-[#FF6B6B]">78%</p>
+                        <p class="mt-2 text-lg font-medium text-gray-700">De las familias caficultoras con menos de 5 hectáreas no alcanzan un ingreso digno.</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="text-6xl font-extrabold text-[#FFD166]">80%</p>
+                        <p class="mt-2 text-lg font-medium text-gray-700">De los costos de producción de café se concentran en recolección y fertilización química.</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="text-6xl font-extrabold text-[#118AB2]">91.5%</p>
+                        <p class="mt-2 text-lg font-medium text-gray-700">De los hogares rurales en Colombia no tienen conectividad a internet fija y móvil.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nuestra Solución -->
+        <section id="solucion" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h3 class="text-4xl font-bold text-center text-[#073B4C] mb-12">Nuestra Solución: El Ecosistema Haui</h3>
+                <div class="bg-white p-8 rounded-xl shadow-lg border">
+                    <div class="grid md:grid-cols-3 gap-8 items-center text-center">
+                        <div class="flex flex-col items-center">
+                             <div class="bg-[#06D6A0] text-white rounded-full w-20 h-20 flex items-center justify-center text-4xl mb-4 font-bold">1</div>
+                            <h4 class="text-2xl font-bold text-[#073B4C]">Conocimiento Accesible</h4>
+                            <p class="mt-2 text-gray-600">El productor accede vía WhatsApp a un **asistente AI** que le enseña sobre agricultura regenerativa y gestión empresarial.</p>
+                        </div>
+                        <div class="text-gray-300 text-5xl font-thin hidden md:block">→</div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-[#118AB2] text-white rounded-full w-20 h-20 flex items-center justify-center text-4xl mb-4 font-bold">2</div>
+                            <h4 class="text-2xl font-bold text-[#073B4C]">Gestión Simplificada</h4>
+                            <p class="mt-2 text-gray-600">Registra costos y actividades diarias de forma conversacional. El bot se convierte en su **"cuaderno digital de la finca"**.</p>
+                        </div>
+                        <div class="text-gray-300 text-5xl font-thin hidden md:block">→</div>
+                        <div class="flex flex-col items-center">
+                             <div class="bg-[#FF6B6B] text-white rounded-full w-20 h-20 flex items-center justify-center text-4xl mb-4 font-bold">3</div>
+                            <h4 class="text-2xl font-bold text-[#073B4C]">Datos para Crecer</h4>
+                            <p class="mt-2 text-gray-600">Recibe reportes de su desempeño y la data genera **inteligencia de mercado** para organizaciones de apoyo y empresas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Modelo de Negocio -->
+        <section id="modelo" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h3 class="text-4xl font-bold text-center text-[#073B4C] mb-12">El Modelo de Negocio: Un Mercado de Dos Lados</h3>
+                 <div class="bg-white p-8 rounded-xl shadow-lg border flex flex-col md:flex-row justify-around items-center">
+                    <div class="text-center p-6">
+                        <p class="text-5xl mb-4">🧑‍🌾</p>
+                        <h4 class="text-2xl font-bold text-[#073B4C]">Productores (B2C)</h4>
+                        <p class="mt-2 text-gray-600">Reciben el **asistente AI gratuito**, pagando con sus datos (anonimizados y agregados).</p>
+                    </div>
+                    <div class="text-center p-6 text-5xl text-[#06D6A0] font-light">
+                        ⇄
+                    </div>
+                    <div class="text-center p-6">
+                        <p class="text-5xl mb-4">🏢</p>
+                        <h4 class="text-2xl font-bold text-[#073B4C]">Organizaciones (B2B-1)</h4>
+                        <p class="mt-2 text-gray-600">Pagan una **suscripción anual** para subsidiar a los productores, escalar sus programas y medir su impacto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mercado Potencial -->
+        <section id="mercado" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h3 class="text-4xl font-bold text-center text-[#073B4C] mb-4">Mercado Potencial (Productores de Café)</h3>
+                <p class="text-lg text-gray-600 text-center mb-10 max-w-3xl mx-auto">
+                    Nuestro *beachhead market* es masivo y fragmentado, una oportunidad perfecta para una solución escalable como Haui.
+                </p>
+                <div class="chart-container">
+                    <canvas id="marketSizeChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyecciones Financieras -->
+        <section id="financieros" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h3 class="text-4xl font-bold text-center text-[#073B4C] mb-4">Proyecciones Financieras a 5 Años</h3>
+                 <p class="text-lg text-gray-600 text-center mb-10 max-w-3xl mx-auto">
+                    Con un modelo B2B-1 enfocado, proyectamos un crecimiento exponencial en ingresos, alcanzando la rentabilidad en el año 5.
+                </p>
+                <div class="chart-container">
+                    <canvas id="financialsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impacto -->
+        <section id="impacto" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h3 class="text-4xl font-bold text-center text-[#073B4C] mb-12">Impacto Medible: Climático y Social</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="stat-card">
+                        <div class="h-40 flex items-center justify-center">
+                            <canvas id="impactChart1"></canvas>
+                        </div>
+                        <p class="mt-4 text-lg font-medium text-gray-700">Reducción de emisiones de Óxido Nitroso (N₂O).</p>
+                    </div>
+                     <div class="stat-card">
+                        <div class="h-40 flex items-center justify-center">
+                            <canvas id="impactChart2"></canvas>
+                        </div>
+                        <p class="mt-4 text-lg font-medium text-gray-700">Aumento anual de Materia Orgánica en el suelo.</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="text-6xl font-extrabold text-[#06D6A0]">50%</p>
+                        <p class="mt-2 text-lg font-medium text-gray-700">Meta de conversión de caficultores a modelos regenerativos y rentables.</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="text-6xl font-extrabold text-[#118AB2]">1M+</p>
+                        <p class="mt-2 text-lg font-medium text-gray-700">Jóvenes que buscamos retener e incentivar en el campo a través de la rentabilidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#073B4C] text-white py-10">
+        <div class="container mx-auto text-center">
+            <p class="text-2xl font-bold">Haui</p>
+            <p class="mt-2">Regenerando el Paisaje Cultural Cafetero. Juntos.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const chartTooltipTitleCallback = function(tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+
+            const processLabels = (labels) => {
+                return labels.map(label => {
+                    if (label.length > 16) {
+                        const words = label.split(' ');
+                        const lines = [];
+                        let currentLine = '';
+                        words.forEach(word => {
+                            if ((currentLine + word).length > 16) {
+                                lines.push(currentLine.trim());
+                                currentLine = word + ' ';
+                            } else {
+                                currentLine += word + ' ';
+                            }
+                        });
+                        lines.push(currentLine.trim());
+                        return lines;
+                    }
+                    return label;
+                });
+            };
+
+            // Market Size Chart
+            const marketSizeCtx = document.getElementById('marketSizeChart').getContext('2d');
+            new Chart(marketSizeCtx, {
+                type: 'bar',
+                data: {
+                    labels: processLabels(['Productores en Colombia', 'Productores en América Latina (sin Brasil)']),
+                    datasets: [{
+                        label: 'Número de Productores de Café',
+                        data: [549000, 3190000],
+                        backgroundColor: ['#06D6A0', '#118AB2'],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { title: chartTooltipTitleCallback } }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return (value / 1000000).toFixed(1) + 'M';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Financials Chart
+            const financialsCtx = document.getElementById('financialsChart').getContext('2d');
+            new Chart(financialsCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5'],
+                    datasets: [{
+                        label: 'Ingresos Anuales (USD)',
+                        data: [10800, 48600, 129600, 324000, 648000],
+                        borderColor: '#06D6A0',
+                        backgroundColor: 'rgba(6, 214, 160, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: 'Ganancia/Pérdida Anual (USD)',
+                        data: [-206700, -251400, -264150, -177563, 21047],
+                        borderColor: '#FF6B6B',
+                        backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: { callbacks: { title: chartTooltipTitleCallback } }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + (value / 1000) + 'K';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Impact Charts
+            const impactConfig = (percentage, color) => ({
+                type: 'doughnut',
+                data: {
+                    labels: ['Meta', 'Restante'],
+                    datasets: [{
+                        data: [percentage, 100 - percentage],
+                        backgroundColor: [color, '#E5E7EB'],
+                        borderWidth: 0,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: false }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('impactChart1').getContext('2d'), impactConfig(40, '#FF6B6B'));
+            new Chart(document.getElementById('impactChart2').getContext('2d'), impactConfig(2, '#FFD166'));
+        });
+    </script>
+
+</body>
+</html>
